@@ -1,0 +1,37 @@
+<div class="form-container">
+
+  <form (ngSubmit)="addNewItem(myForm)" [formGroup]="myForm">
+
+    <mat-form-field>
+      <input [matDatepicker]="picker" formControlName="date" matInput name="date" placeholder="Choose a date" required>
+      <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <input formControlName="title" matInput name="title" placeholder="Title" required>
+      <mat-icon matSuffix></mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-select formControlName="category" name="category" placeholder="Category" required>
+        <mat-option value="Food">Food</mat-option>
+        <mat-option value="Transport">Transport</mat-option>
+        <mat-option value="Entertainment">Entertainment</mat-option>
+        <mat-option value="Shopping">Shopping</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <input formControlName="amount" matInput name="amount" placeholder="Amount" required>
+      <mat-icon matSuffix></mat-icon>
+      <span matPrefix>$</span>
+    </mat-form-field>
+
+
+    <button [disabled]="!myForm.valid" color="accent" mat-flat-button type="submit">Add</button>
+
+  </form>
+
+</div>
+
